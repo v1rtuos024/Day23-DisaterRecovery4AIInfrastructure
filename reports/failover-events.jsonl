@@ -1,0 +1,7 @@
+{"step": "1_verify_target", "target": "b", "ok": true, "state": {"region": "b", "pool_state": "warm"}, "ts": 1791516074.7081184, "iso": "2026-10-09T03:21:14.708118+00:00"}
+{"step": "2_restore_snapshot", "target": "b", "ok": false, "reason": "[Errno 2] No such file or directory: 'state/region-b/weights/VERSION'", "ts": 1791516074.7159958, "iso": "2026-10-09T03:21:14.715996+00:00"}
+{"step": "1_verify_target", "target": "b", "ok": true, "state": {"region": "b", "pool_state": "warm", "weights": false, "count": 0, "latest_doc_ts": null, "ts": 1791516448.4095356}, "ts": 1791516448.4113162, "iso": "2026-10-09T03:27:28.411316+00:00"}
+{"step": "2_restore_snapshot", "target": "b", "ok": true, "embed_model_version": "embed-model=vi-e5-base@v3", "primary_latest_doc_ts": 1791516448.2594647, "restored_latest_doc_ts": 1791516442.2541008, "rpo_seconds": 6.01, "docs_lost": 3, "ts": 1791516448.6336029, "iso": "2026-10-09T03:27:28.633603+00:00"}
+{"step": "3_scale_pool", "target": "b", "ok": true, "pool_state": "full", "ts": 1791516448.6418636, "iso": "2026-10-09T03:27:28.641864+00:00"}
+{"step": "4_wait_ready", "target": "b", "ok": true, "state": {"region": "b", "pool_state": "full", "weights": true, "count": 216, "latest_doc_ts": 1791516442.2541008, "ts": 1791516458.135547}, "ts": 1791516458.1463852, "iso": "2026-10-09T03:27:38.146385+00:00"}
+{"step": "5_dns_cutover", "target": "b", "ok": true, "ts": 1791516458.1657746, "iso": "2026-10-09T03:27:38.165775+00:00"}

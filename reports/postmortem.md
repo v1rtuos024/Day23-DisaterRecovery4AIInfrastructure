@@ -34,6 +34,13 @@ trong runbook của tôi sẽ thất bại?*
 ## 5. Ba câu hỏi bắt buộc trả lời
 
 1. `interval × threshold` của bạn là bao nhiêu giây? Nó chiếm bao nhiêu % RTO?
+   Với interval=5s và threshold=3, ngân sách phát hiện theo công thức của lab
+   là 15s, chiếm 5% RTO mục tiêu 300s. Trong polling thực tế, outage có thể
+   được phát hiện sau khoảng 10–15s tùy thời điểm xảy ra giữa hai poll,
+   cộng thời gian request/timeout; 15s không phải cận dưới tuyệt đối.
+   Với threshold=3, interval phải nhỏ hơn 100s để còn thời gian trong RTO
+   cho xác nhận, restore, warmup và cutover. Nếu các bước này cùng timeout
+   cần B giây, chọn interval <= (300-B)/3; giữ mặc định 5s cho lab.
 2. Nếu hạ interval xuống 1s, RTO giảm mấy giây — và bạn trả giá gì (§4 flapping)?
 3. Nếu outage kéo dài 6 giờ và region chính mất dữ liệu vĩnh viễn, `docs_lost` của
    bạn có nghĩa gì với khách hàng?
